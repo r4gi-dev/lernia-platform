@@ -36,10 +36,8 @@ export default function Login() {
       setError("メールアドレスまたはパスワードが正しくありません。");
       console.error("Sign in error:", error.message);
     } else {
-      // ログイン成功後、SupabaseのAuth HelperがCookieをセットし、
-      // 認証状態が必要なページへのアクセスを可能にします。
-      // ここではダッシュボードにリダイレクトします。
-      router.push("/dashboard");
+      // ログイン成功後、ホームページにリダイレクトします。
+      router.push("/");
     }
   };
 
@@ -47,7 +45,7 @@ export default function Login() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: `${location.origin}/`,
       },
     });
   };

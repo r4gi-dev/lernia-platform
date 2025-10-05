@@ -34,7 +34,7 @@ export default function SignUp() {
       password,
       options: {
         // ユーザー登録後、このURLにリダイレクトして認証を完了させる
-        emailRedirectTo: `${location.origin}/auth/callback`,
+        emailRedirectTo: `${location.origin}/`,
       },
     });
 
@@ -57,7 +57,7 @@ export default function SignUp() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: `${location.origin}/`,
       },
     });
   };
